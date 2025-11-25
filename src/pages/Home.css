@@ -1,0 +1,10 @@
+.home-page {
+  min-height: 100vh;
+}
+
+.chat-section {
+  background-color: var(--bg-white);
+  padding: 0 0 40px;
+  margin-top: -40px;
+}
+

@@ -1,0 +1,186 @@
+.services-page {
+  min-height: 100vh;
+}
+
+.services-hero {
+  background: white;
+  color: var(--text-dark);
+  text-align: center;
+  padding: 40px 0 20px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 0;
+}
+
+.services-hero .page-title {
+  margin-bottom: 0.5rem;
+}
+
+.services-hero .page-subtitle {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.service-section {
+  padding: 15px 0;
+  margin-top: 0;
+}
+
+.service-section:first-of-type {
+  padding-top: 20px;
+}
+
+.service-section-white {
+  background-color: white;
+}
+
+.service-section-gray {
+  background-color: var(--bg-light);
+}
+
+.service-card-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0.5rem 0;
+}
+
+.service-icon-wrapper {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.service-card-vertical:hover .service-icon-wrapper {
+  transform: scale(1.05);
+}
+
+.service-icon-large {
+  font-size: 5rem;
+  line-height: 1;
+  display: block;
+}
+
+.service-title-vertical {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-dark);
+  line-height: 1.3;
+}
+
+.service-description-vertical {
+  color: var(--text-light);
+  line-height: 1.8;
+  font-size: 1.125rem;
+  margin: 0;
+  max-width: 600px;
+}
+
+.services-cta {
+  background: #e0f2fe;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.services-cta.section {
+  padding: 80px 0;
+}
+
+.cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-bottom: 0;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.cta-description {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: var(--text-light);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.services-cta .btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.services-cta .btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.services-cta .btn-secondary {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.services-cta .btn-secondary:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.5rem;
+  }
+
+  .service-section {
+    padding: 60px 0;
+  }
+
+  .service-card-vertical {
+    padding: 1.5rem 1rem;
+  }
+
+  .service-icon-wrapper {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-icon-large {
+    font-size: 4rem;
+  }
+
+  .service-title-vertical {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-description-vertical {
+    font-size: 1rem;
+  }
+
+  .cta-title {
+    font-size: 2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-buttons .btn {
+    width: 100%;
+  }
+}
+
