@@ -4,6 +4,7 @@ import './ChatInputBar.css'
 const ChatInputBar = () => {
   const [inputValue, setInputValue] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [isRecording, setIsRecording] = useState(false)
 
   const handleSend = async () => {
     if (!inputValue.trim()) return
@@ -46,9 +47,14 @@ const ChatInputBar = () => {
     }
   }
 
-  const handleVoiceInput = () => {
-    // Voice input functionality can be added here
-    console.log('Voice input clicked')
+  const handleMicrophoneClick = () => {
+    if (isRecording) {
+      // Stop recording logic can be added here
+      setIsRecording(false)
+    } else {
+      // Start recording logic can be added here
+      setIsRecording(true)
+    }
   }
 
   return (
@@ -66,16 +72,16 @@ const ChatInputBar = () => {
         <div className="chat-input-actions">
           <button
             className="voice-btn"
-            onClick={handleVoiceInput}
-            aria-label="Voice input"
+            onClick={handleMicrophoneClick}
+            disabled={isLoading}
+            aria-label={isRecording ? 'Stop recording' : 'Start recording'}
           >
             <svg
-              width="22"
-              height="22"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              style={{ display: 'block', overflow: 'visible' }}
             >
               <path
                 d="M12 1C10.34 1 9 2.34 9 4V12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12V4C15 2.34 13.66 1 12 1Z"
@@ -83,9 +89,10 @@ const ChatInputBar = () => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                fill={isRecording ? 'currentColor' : 'none'}
               />
               <path
-                d="M19 10V12C19 16.42 15.42 20 11 20M11 20V23M11 20H8M11 20H14"
+                d="M19 10V12C19 15.87 15.87 19 12 19M5 10V12C5 15.87 8.13 19 12 19M12 19V23M8 23H16"
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
