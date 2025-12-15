@@ -31,7 +31,6 @@ const OurIntegrations = () => {
             {duplicatedIntegrations.map((integration, index) => (
               <div key={index} className="integration-card">
                 <div className="integration-icon">{integration.icon}</div>
-                <p className="integration-name">{integration.name}</p>
               </div>
             ))}
           </div>

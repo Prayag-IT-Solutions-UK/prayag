@@ -1,111 +1,442 @@
-.chat-input-bar-container {
+/* Chat Container Styles */
+.chat-container {
   width: 100%;
-  max-width: 700px;
+  max-width: 100%;
   margin: 0 auto;
-  padding-top: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
 }
 
+.chat-container-full {
+  width: 100%;
+  max-width: 100%; /* Match hero-content-chat-active max-width */
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  min-height: 0;
+  align-items: stretch;
+}
+
+.chat-messages {
+  max-height: 60vh;
+  min-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem 1.5rem 2rem;
+  margin-bottom: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  scroll-behavior: smooth;
+  scroll-padding-bottom: 1rem;
+  width: 100%;
+}
+
+.chat-messages-full {
+  flex: 1;
+  max-height: none;
+  min-height: 0;
+  height: 100%;
+  padding: 2rem 2rem 0; /* Removed bottom padding to move input bar up */
+  margin-bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.loading-indicator {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding-left: 44px;
+}
+
+.loading-dots {
+  display: flex;
+  gap: 6px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+.loading-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  animation: loadingDot 1.4s infinite ease-in-out;
+}
+
+.loading-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes loadingDot {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Chat Input Bar Container Styles */
+.chat-input-bar-container {
+  width: 100%;
+  max-width: 100%;
+  margin: -6rem auto 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.chat-input-bar-container-full {
+  max-width: 100%;
+  padding: 0 2rem 0; /* Removed top padding to move input bar up */
+  margin-top: -6rem; /* Increased negative margin to move input bar further up */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .chat-input-bar-container {
+    animation: chatReveal 1s ease-out 0.6s backwards;
+  }
+}
+
+@keyframes chatReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Prompt box styling matching bolt.new design - Base styles */
 .chat-input-bar {
+  position: relative;
   display: flex;
   align-items: center;
-  background: white;
-  border: 2px solid #e0e7ff;
-  border-radius: 50px;
-  padding: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 48px 28px; /* Increased vertical padding */
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  overflow: visible;
+  width: 100%;
+  max-width: 94%;
+  margin: 0 auto;
+  gap: 36px; /* Increased gap for better spacing between input and buttons */
+  min-height: 140px;
+}
+
+/* Layer with #333231 color */
+.chat-input-bar::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 32px;
+  border: 4px solid #333231;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Base styling for hero section chat input bar */
+.chat-input-bar-container .chat-input-bar {
+  width: 100% !important;
+  max-width: 65% !important;
+  margin: 0 auto !important;
+  padding: 36px 20px !important;
+  gap: 24px !important;
+  min-height: 110px !important;
+  border-radius: 24px !important;
+}
+
+/* Conversational chat input bar - EXACTLY match homepage */
+.chat-input-bar-container-full .chat-input-bar {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 28px 28px !important; /* Further reduced vertical padding */
+  gap: 36px !important; /* Match homepage gap */
+  min-height: 90px !important; /* Further reduced min-height */
+  border-radius: 24px !important;
+}
+
+/* Input field padding for hero section - cursor positioned to left */
+.chat-input-bar-container .chat-input-field {
+  padding: 0 20px 0 16px !important; /* Reduced left padding to move cursor to the left */
+}
+
+/* Input field padding for conversational chat - cursor positioned to left */
+.chat-input-bar-container-full .chat-input-field {
+  padding: 0 20px 0 16px !important; /* Reduced left padding to move cursor to the left */
+  font-size: 1.25rem !important; /* Match hero section font size */
+  min-height: 40px !important; /* Match hero section min-height */
+}
+
+/* Input wrapper padding */
+.chat-input-bar-container .input-wrapper,
+.chat-input-bar-container-full .input-wrapper {
+  padding: 0 4px !important;
+}
+
+/* Placeholder position for hero section */
+.chat-input-bar-container .typewriter-placeholder {
+  left: 20px !important;
+  font-size: 1.25rem !important;
+}
+
+/* Placeholder for conversational chat - EXACTLY match homepage */
+.chat-input-bar-container-full .typewriter-placeholder {
+  left: 20px !important; /* EXACTLY match homepage position */
+  font-size: 1.25rem !important; /* EXACTLY match homepage font size */
+}
+
+/* Microphone button for conversational chat - increased spacing from text */
+.chat-input-bar-container-full .microphone-btn {
+  width: 52px !important; /* Match hero section width */
+  height: 52px !important; /* Match hero section height */
+  min-width: 52px !important;
+  min-height: 52px !important;
+  border-radius: 14px !important;
+  margin-left: 92px !important; /* Increased spacing between typewriter text and microphone */
+}
+
+.chat-input-bar-container-full .microphone-btn .mic-icon {
+  width: 22px !important; /* Match hero section icon size */
+  height: 22px !important; /* Match hero section icon size */
+}
+
+/* Send button for conversational chat (match hero section) */
+.chat-input-bar-container-full .send-btn {
+  width: 52px !important; /* Match microphone width */
+  height: 52px !important; /* Match microphone height */
+  min-width: 52px !important;
+  min-height: 52px !important;
+  padding: 0 !important;
+  border-radius: 14px !important;
+  font-size: 1rem !important;
+}
+
+.chat-input-bar-container-full .send-btn .send-icon {
+  width: 22px !important; /* Match microphone icon size */
+  height: 22px !important; /* Match microphone icon size */
 }
 
 .chat-input-bar:focus-within {
-  border-color: #2563eb;
-  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 6px 32px rgba(0, 0, 0, 0.4),
+    0 2px 12px rgba(0, 0, 0, 0.3);
+  background: rgba(25, 25, 25, 0.95);
 }
 
 .chat-input-field {
   flex: 1;
-  padding: 14px 20px;
   border: none;
   outline: none;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-family: inherit;
-  color: var(--text-dark);
+  color: #ffffff;
   background: transparent;
+  resize: none;
+  min-height: 40px;
+  padding: 0 20px; /* Increased horizontal padding to prevent text from touching edges */
+  margin-right: 0; /* Removed margin-right since gap handles spacing */
+  line-height: 1.6;
+}
+
+.input-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 4px; /* Added small padding to input wrapper for extra spacing */
 }
 
 .chat-input-field::placeholder {
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.4);
 }
 
-.chat-input-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding-right: 4px;
-  padding-left: 4px;
-  overflow: visible;
+.typewriter-placeholder {
+  position: absolute;
+  left: 20px; /* Adjusted to match input field padding */
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 1.25rem;
 }
 
-.voice-btn {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  min-height: 44px;
-  border-radius: 50%;
-  border: none;
-  background: white;
-  color: var(--text-dark);
+.typewriter-cursor {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.6);
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+
+.microphone-btn {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  min-height: 52px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
-  overflow: visible;
-  padding: 4px;
-  margin: 0;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.voice-btn:hover {
-  background: var(--bg-light);
-  color: var(--primary-color);
-  transform: scale(1.05);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+.microphone-btn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.4);
+  color: #3b82f6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
-.voice-btn:active {
-  transform: scale(0.95);
+.microphone-btn:active {
+  background: rgba(59, 130, 246, 0.25);
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
 }
 
-.voice-btn svg {
-  width: 20px;
-  height: 20px;
+.microphone-btn[aria-label*="Stop"] {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.microphone-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.microphone-btn .mic-icon {
+  width: 22px;
+  height: 22px;
   display: block;
-  flex-shrink: 0;
-  overflow: visible;
-  max-width: 100%;
-  max-height: 100%;
 }
 
 .send-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: none;
-  background: linear-gradient(135deg, #2563eb 0%, #764ba2 100%);
-  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0;
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  min-height: 52px;
+  padding: 0;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
+  box-shadow: 
+    0 4px 16px rgba(37, 99, 235, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.send-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
 }
 
 .send-btn:hover:not(:disabled) {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 24px rgba(37, 99, 235, 0.5),
+    0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.send-btn:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.send-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 8px rgba(37, 99, 235, 0.4),
+    0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .send-btn:disabled {
@@ -113,39 +444,169 @@
   cursor: not-allowed;
 }
 
-.send-btn svg {
-  width: 20px;
-  height: 20px;
-}
-
-.chat-disclaimer {
-  text-align: center;
-  color: var(--text-light);
-  font-size: 0.875rem;
-  margin-top: 1rem;
-  opacity: 0.8;
+.send-btn .send-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+  transform: rotate(-45deg);
 }
 
 @media (max-width: 768px) {
+  .chat-messages {
+    max-height: 50vh;
+    padding: 0.75rem 0.75rem 1.5rem;
+  }
+
+  .chat-messages-full {
+    padding: 1.5rem 1.5rem 0; /* Removed bottom padding to move input bar up */
+  }
+
+  .chat-input-bar-container-full {
+    padding: 0 1.5rem 0; /* Removed top padding to move input bar up */
+    margin-top: -3.5rem; /* Increased negative margin to move input bar further up */
+  }
+
+  .chat-container {
+    padding: 0;
+  }
+
+  .chat-container-full {
+    padding: 0;
+  }
+
   .chat-input-bar-container {
-    max-width: 100%;
-    padding: 0 1rem;
+    padding: 0;
+  }
+
+  .chat-input-bar-container-full {
+    padding: 2rem 1.5rem 0; /* Match mobile padding structure */
+  }
+
+  /* Base mobile input bar styling */
+  .chat-input-bar {
+    padding: 40px 22px;
+    min-height: 110px;
+    border-radius: 18px;
+    gap: 28px; /* Increased gap for better mobile spacing */
+    max-width: 96%;
+    margin: 0 auto;
+  }
+
+  /* Base mobile input bar styling for hero section */
+  .chat-input-bar-container .chat-input-bar {
+    padding: 36px 18px !important;
+    min-height: 100px !important;
+    border-radius: 18px !important;
+    gap: 24px !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+  }
+
+  /* Mobile input bar styling for conversational chat - EXACTLY match homepage */
+  .chat-input-bar-container-full .chat-input-bar {
+    padding: 22px 22px !important; /* Further reduced vertical padding */
+    min-height: 75px !important; /* Further reduced min-height */
+    border-radius: 18px !important;
+    gap: 28px !important; /* EXACTLY match homepage mobile gap */
+    max-width: 96% !important;
+    margin: 0 auto !important;
+  }
+
+  /* Base mobile input field padding - cursor positioned to left */
+  .chat-input-bar-container .chat-input-field {
+    padding: 0 16px 0 12px !important; /* Reduced left padding to move cursor to the left */
+  }
+
+  /* Mobile input field for conversational chat - cursor positioned to left */
+  .chat-input-bar-container-full .chat-input-field {
+    padding: 0 16px 0 12px !important; /* Reduced left padding to move cursor to the left */
+    font-size: 1.125rem !important; /* Match hero section mobile font size */
+    min-height: 32px !important; /* Match hero section mobile min-height */
+  }
+
+  .input-wrapper {
+    padding: 0 2px !important; /* Added small padding for mobile */
   }
 
   .chat-input-field {
+    font-size: 1.125rem;
+    min-height: 32px;
+    padding: 0 16px; /* Increased horizontal padding for mobile */
+  }
+
+  /* Base mobile placeholder */
+  .chat-input-bar-container .typewriter-placeholder {
+    font-size: 1.125rem;
+    left: 16px !important;
+  }
+
+  /* Mobile placeholder for conversational chat - EXACTLY match homepage */
+  .chat-input-bar-container-full .typewriter-placeholder {
+    font-size: 1.125rem !important; /* EXACTLY match homepage mobile font size */
+    left: 16px !important; /* EXACTLY match homepage mobile position */
+  }
+
+  /* Base mobile microphone button */
+  .chat-input-bar-container .microphone-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 12px;
+  }
+
+  /* Mobile microphone button for conversational chat - increased spacing from text */
+  .chat-input-bar-container-full .microphone-btn {
+    width: 44px !important; /* Match hero section mobile width */
+    height: 44px !important; /* Match hero section mobile height */
+    min-width: 44px !important;
+    min-height: 44px !important;
+    border-radius: 12px !important;
+    margin-left: 64px !important; /* Increased spacing between typewriter text and microphone */
+  }
+
+  .chat-input-bar-container .microphone-btn .mic-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Mobile microphone icon for conversational chat (match hero section) */
+  .chat-input-bar-container-full .microphone-btn .mic-icon {
+    width: 20px !important; /* Match hero section mobile icon size */
+    height: 20px !important; /* Match hero section mobile icon size */
+  }
+
+  /* Base mobile send button */
+  .chat-input-bar-container .send-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
     font-size: 0.95rem;
-    padding: 12px 16px;
+    border-radius: 12px;
   }
 
-  .voice-btn,
-  .send-btn {
-    width: 40px;
-    height: 40px;
+  /* Mobile send button for conversational chat (match hero section) */
+  .chat-input-bar-container-full .send-btn {
+    width: 44px !important; /* Match microphone width on mobile */
+    height: 44px !important; /* Match microphone height on mobile */
+    min-width: 44px !important;
+    min-height: 44px !important;
+    padding: 0 !important;
+    font-size: 0.95rem !important;
+    border-radius: 12px !important;
   }
 
-  .send-btn {
-    width: 40px;
-    height: 40px;
+  .chat-input-bar-container .send-btn .send-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Mobile send icon for conversational chat (match hero section) */
+  .chat-input-bar-container-full .send-btn .send-icon {
+    width: 20px !important; /* Match microphone icon size on mobile */
+    height: 20px !important; /* Match microphone icon size on mobile */
   }
 }
 

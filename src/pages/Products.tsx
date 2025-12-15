@@ -1,17 +1,14 @@
 import { Link } from 'react-router-dom'
+import PageHero from '../components/PageHero'
 import './Products.css'
 
 const Products = () => {
   return (
     <div className="products-page">
-      <section className="products-hero section">
-        <div className="container">
-          <h1 className="page-title">Our Products</h1>
-          <p className="page-subtitle">
-            Innovative solutions designed to transform your business operations
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Our Products"
+        subtitle="Innovative solutions designed to transform your business operations"
+      />
 
       <section className="product-detail section">
         <div className="container">
@@ -67,20 +64,20 @@ const Products = () => {
                 <h3 className="benefits-title">Benefits:</h3>
                 <div className="benefits-grid">
                   <div className="benefit-card">
-                    <div className="benefit-icon">⏰</div>
-                    <p>24/7 Availability</p>
+                    <h4 className="benefit-heading">24/7 Availability</h4>
+                    <p className="benefit-description">Round-the-clock customer support without human intervention</p>
                   </div>
                   <div className="benefit-card">
-                    <div className="benefit-icon">💰</div>
-                    <p>Cost Reduction</p>
+                    <h4 className="benefit-heading">Cost Reduction</h4>
+                    <p className="benefit-description">Significantly lower operational costs compared to traditional support</p>
                   </div>
                   <div className="benefit-card">
-                    <div className="benefit-icon">📈</div>
-                    <p>Increased Efficiency</p>
+                    <h4 className="benefit-heading">Increased Efficiency</h4>
+                    <p className="benefit-description">Automate repetitive tasks and streamline your workflows</p>
                   </div>
                   <div className="benefit-card">
-                    <div className="benefit-icon">😊</div>
-                    <p>Better Customer Experience</p>
+                    <h4 className="benefit-heading">Better Customer Experience</h4>
+                    <p className="benefit-description">Instant responses and personalized interactions for every customer</p>
                   </div>
                 </div>
               </div>

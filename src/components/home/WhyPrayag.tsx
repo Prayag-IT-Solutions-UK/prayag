@@ -37,7 +37,7 @@ const WhyPrayag = () => {
   return (
     <section className="why-prayag section">
       <div className="container">
-        <h2 className="section-title">Why Choose Prayag IT Solutions</h2>
+        <h2 className="section-title">Why Choose Us</h2>
         <p className="section-subtitle">
           We combine expertise, innovation, and dedication to deliver exceptional
           results

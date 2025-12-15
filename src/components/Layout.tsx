@@ -2,6 +2,14 @@ import { Link, useLocation } from 'react-router-dom'
 import { ReactNode } from 'react'
 import './Layout.css'
 
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  })
+}
+
 interface LayoutProps {
   children: ReactNode
 }
@@ -14,58 +22,23 @@ const Layout = ({ children }: LayoutProps) => {
       <nav className="navbar">
         <div className="container">
           <div className="nav-content">
-            <Link to="/" className="logo">
-              <div className="logo-icon">
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12 2L2 7L12 12L22 7L12 2Z"
-                    stroke="url(#logoGradient)"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="url(#logoGradientFill)"
-                  />
-                  <path
-                    d="M2 17L12 22L22 17"
-                    stroke="url(#logoGradient)"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="url(#logoGradientFill)"
-                  />
-                  <path
-                    d="M2 12L12 17L22 12"
-                    stroke="url(#logoGradient)"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="url(#logoGradientFill)"
-                  />
-                  <defs>
-                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#2563eb" />
-                      <stop offset="100%" stopColor="#764ba2" />
-                    </linearGradient>
-                    <linearGradient id="logoGradientFill" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#2563eb" stopOpacity="0.1" />
-                      <stop offset="100%" stopColor="#764ba2" stopOpacity="0.1" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <span className="logo-text">Prayag IT Solutions</span>
+            <Link to="/" className="logo" onClick={scrollToTop}>
+              <img 
+                src="/logo.png" 
+                alt="PRAYAG SOLUTIONS LTD" 
+                className="logo-image"
+                onError={(e) => {
+                  console.error('Logo image failed to load');
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
             </Link>
             <ul className="nav-links">
               <li>
                 <Link
                   to="/"
                   className={location.pathname === '/' ? 'active' : ''}
+                  onClick={scrollToTop}
                 >
                   Home
                 </Link>
@@ -74,6 +47,7 @@ const Layout = ({ children }: LayoutProps) => {
                 <Link
                   to="/about"
                   className={location.pathname === '/about' ? 'active' : ''}
+                  onClick={scrollToTop}
                 >
                   About
                 </Link>
@@ -82,6 +56,7 @@ const Layout = ({ children }: LayoutProps) => {
                 <Link
                   to="/services"
                   className={location.pathname === '/services' ? 'active' : ''}
+                  onClick={scrollToTop}
                 >
                   Services
                 </Link>
@@ -90,6 +65,7 @@ const Layout = ({ children }: LayoutProps) => {
                 <Link
                   to="/products"
                   className={location.pathname === '/products' ? 'active' : ''}
+                  onClick={scrollToTop}
                 >
                   Products
                 </Link>
@@ -98,12 +74,13 @@ const Layout = ({ children }: LayoutProps) => {
                 <Link
                   to="/contact"
                   className={location.pathname === '/contact' ? 'active' : ''}
+                  onClick={scrollToTop}
                 >
                   Contact
                 </Link>
               </li>
             </ul>
-            <Link to="/contact" className="nav-cta-btn">
+            <Link to="/contact" className="nav-cta-btn" onClick={scrollToTop}>
               <svg
                 width="16"
                 height="16"
@@ -149,51 +126,15 @@ const Layout = ({ children }: LayoutProps) => {
           <div className="footer-content">
             <div className="footer-section footer-brand">
               <Link to="/" className="footer-logo">
-                <div className="logo-icon">
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 2L2 7L12 12L22 7L12 2Z"
-                      stroke="url(#footerLogoGradient)"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="url(#footerLogoGradientFill)"
-                    />
-                    <path
-                      d="M2 17L12 22L22 17"
-                      stroke="url(#footerLogoGradient)"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="url(#footerLogoGradientFill)"
-                    />
-                    <path
-                      d="M2 12L12 17L22 12"
-                      stroke="url(#footerLogoGradient)"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="url(#footerLogoGradientFill)"
-                    />
-                    <defs>
-                      <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#ffffff" />
-                        <stop offset="100%" stopColor="#ffffff" />
-                      </linearGradient>
-                      <linearGradient id="footerLogoGradientFill" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#ffffff" stopOpacity="0.1" />
-                        <stop offset="100%" stopColor="#ffffff" stopOpacity="0.1" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </div>
-                <span className="footer-logo-text">Prayag IT Solutions</span>
+                <img 
+                  src="/logo.png" 
+                  alt="PRAYAG SOLUTIONS LTD" 
+                  className="footer-logo-image"
+                  onError={(e) => {
+                    console.error('Footer logo image failed to load');
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
               </Link>
               <p className="footer-tagline">
                 Transforming businesses through intelligent AI solutions.
@@ -244,7 +185,39 @@ const Layout = ({ children }: LayoutProps) => {
           </div>
           <div className="footer-bottom">
             <div className="footer-bottom-left">
-              <p>Privacy Policy ©2025 Prayag IT Solutions</p>
+              <p>PRAYAG SOLUTIONS LTD</p>
+              <p>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                5 South Charlotte Street, Edinburgh, Scotland, EH2 4AN
+              </p>
+              <p>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                SC796256
+              </p>
+              <p>Privacy Policy ©2025 PRAYAG SOLUTIONS LTD</p>
             </div>
             <div className="footer-bottom-right">
               <div className="footer-social">

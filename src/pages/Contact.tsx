@@ -1,4 +1,5 @@
 import { useState, FormEvent, ChangeEvent } from 'react'
+import PageHero from '../components/PageHero'
 import './Contact.css'
 
 const Contact = () => {
@@ -77,14 +78,10 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      <section className="contact-hero section">
-        <div className="container">
-          <h1 className="contact-main-title">Get Started with Prayag IT Solutions</h1>
-          <p className="contact-subtitle">
-            Speak to an expert and start a plan for your project
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Get Started with Us"
+        subtitle="Speak to an expert and start a plan for your project"
+      />
 
       <section className="contact-content section">
         <div className="container">

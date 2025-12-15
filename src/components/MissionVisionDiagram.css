@@ -1,0 +1,166 @@
+/* Mission Vision Diagram - Minimalist 3D Style */
+
+.mission-vision-diagram {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 40px;
+  min-height: 700px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Circle Base Styles */
+.mv-circle {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mv-circle:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.25),
+    0 12px 32px rgba(0, 0, 0, 0.2),
+    0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Vision Circle - Upper Left with Red Border */
+.mv-vision-circle {
+  top: 10%;
+  left: 10%;
+  border: 6px solid #7d2566;
+  z-index: 2;
+  box-shadow: 
+    0 20px 60px rgba(125, 37, 102, 0.25),
+    0 8px 24px rgba(125, 37, 102, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mv-vision-circle:hover {
+  box-shadow: 
+    0 30px 80px rgba(125, 37, 102, 0.35),
+    0 12px 32px rgba(125, 37, 102, 0.25),
+    0 6px 16px rgba(0, 0, 0, 0.2),
+    0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Mission Circle - Lower Right with Blue Border */
+.mv-mission-circle {
+  bottom: 10%;
+  right: 10%;
+  border: 6px solid #234799;
+  z-index: 1;
+  box-shadow: 
+    0 20px 60px rgba(35, 71, 153, 0.25),
+    0 8px 24px rgba(35, 71, 153, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mv-mission-circle:hover {
+  box-shadow: 
+    0 30px 80px rgba(35, 71, 153, 0.35),
+    0 12px 32px rgba(35, 71, 153, 0.25),
+    0 6px 16px rgba(0, 0, 0, 0.2),
+    0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Typography */
+.mv-circle-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+
+.mv-circle-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #1e293b;
+  font-weight: 400;
+  margin: 0;
+  max-width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .mission-vision-diagram {
+    min-height: 1000px;
+    padding: 80px 20px;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .mv-circle {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    right: auto;
+    margin: 0 auto;
+  }
+
+  .mv-vision-circle {
+    order: 1;
+  }
+
+  .mv-mission-circle {
+    order: 2;
+  }
+
+  .mv-circle-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .mv-circle-text {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 640px) {
+  .mission-vision-diagram {
+    min-height: 900px;
+    padding: 60px 15px;
+  }
+
+  .mv-circle {
+    width: 320px;
+    height: 320px;
+    padding: 2rem;
+  }
+
+  .mv-circle-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .mv-circle-text {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+}
+

@@ -1,9 +1,9 @@
 .our-process {
-  background-color: var(--bg-white);
+  background-color: var(--bg-light);
 }
 
 .process-main-title {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 3rem;
@@ -52,7 +52,7 @@
 
 /* Active state - all elements activate together */
 .process-step.active .step-number {
-  background: #2563eb;
+  background: #25347d;
   color: white;
   opacity: 1;
   transform: scale(1);
@@ -123,14 +123,14 @@
 }
 
 .step-number {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: #6b7280;
   background: #e5e7eb;
-  width: 100px;
-  height: 100px;
-  min-width: 100px;
-  min-height: 100px;
+  width: 75px;
+  height: 75px;
+  min-width: 75px;
+  min-height: 75px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -142,11 +142,11 @@
 }
 
 .process-step.active .step-number {
-  background: #2563eb;
+  background: #25347d;
   color: white;
   opacity: 1;
   transform: scale(1);
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 15px rgba(37, 52, 125, 0.3);
 }
 
 .process-step:hover .step-number:not(.active) {
@@ -157,7 +157,7 @@
 
 .process-step:hover .step-number.active {
   transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 4px 20px rgba(37, 52, 125, 0.4);
 }
 
 .step-content {
@@ -180,7 +180,7 @@
 }
 
 .process-step:hover .step-title {
-  color: #2563eb;
+  color: #25347d;
 }
 
 .step-description {
@@ -424,11 +424,11 @@
   }
 
   .step-number {
-    width: 100px;
-    height: 100px;
-    min-width: 100px;
-    min-height: 100px;
-    font-size: 3rem;
+    width: 75px;
+    height: 75px;
+    min-width: 75px;
+    min-height: 75px;
+    font-size: 2.5rem;
   }
 }
 
@@ -745,7 +745,7 @@
 
 @media (max-width: 768px) {
   .process-main-title {
-    font-size: 1.75rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
   }
 
@@ -778,11 +778,11 @@
   }
 
   .step-number {
-    width: 80px;
-    height: 80px;
-    min-width: 80px;
-    min-height: 80px;
-    font-size: 2.5rem;
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    min-height: 65px;
+    font-size: 2rem;
   }
 }
 

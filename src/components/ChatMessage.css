@@ -1,0 +1,135 @@
+.chat-message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.5rem; /* Increased spacing between messages */
+  animation: messageFadeIn 0.3s ease-out;
+}
+
+@keyframes messageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; /* Increased gap between icon and text */
+  max-width: 85%;
+}
+
+.user-message {
+  align-items: flex-end;
+}
+
+.user-message .message-content {
+  flex-direction: row-reverse;
+  margin-left: auto;
+}
+
+.ai-message .message-content {
+  margin-right: auto;
+}
+
+.ai-icon {
+  width: 36px; /* Increased from 32px */
+  height: 36px; /* Increased from 32px */
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ai-icon-svg {
+  width: 20px; /* Increased from 18px */
+  height: 20px; /* Increased from 18px */
+  color: white;
+}
+
+.message-text {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 18px 24px; /* Increased padding for more space */
+  word-wrap: break-word;
+  line-height: 1.7;
+}
+
+.user-message .message-text {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #ffffff;
+}
+
+.ai-message .message-text {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.message-text p {
+  margin: 0;
+  font-size: 1.0625rem; /* Increased font size */
+  white-space: pre-wrap;
+  line-height: 1.75; /* Increased line height */
+}
+
+.message-actions {
+  display: flex;
+  gap: 12px; /* Increased gap between action buttons */
+  margin-top: 12px; /* Increased top margin */
+  margin-left: 52px; /* Increased left margin to account for larger gap */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.ai-message:hover .message-actions {
+  opacity: 1;
+}
+
+.message-action-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.message-action-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.message-action-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 768px) {
+  .message-content {
+    max-width: 90%;
+  }
+
+  .message-actions {
+    opacity: 1;
+  }
+}
+

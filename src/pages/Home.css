@@ -1,10 +1,50 @@
 .home-page {
   min-height: 100vh;
+  background: #050814;
 }
 
-.chat-section {
-  background-color: var(--bg-white);
-  padding: 0 0 40px;
-  margin-top: -40px;
+.home-page .navbar {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.home-page .logo {
+  color: #ffffff;
+}
+
+.home-page .logo-text {
+  color: #ffffff;
+  background: none;
+  -webkit-text-fill-color: #ffffff;
+}
+
+.home-page .nav-links a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.home-page .nav-links a:hover {
+  color: #ffffff;
+}
+
+.home-page .nav-links a.active {
+  color: #3b82f6;
+}
+
+.home-page .nav-cta-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: white;
+}
+
+.home-page .mobile-menu-toggle span {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-section {
+  background: transparent;
+  padding-bottom: 0;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
 }
 

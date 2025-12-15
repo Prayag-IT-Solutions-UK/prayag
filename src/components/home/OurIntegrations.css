@@ -5,18 +5,15 @@
 }
 
 .our-integrations .section-title {
-  font-size: 3rem;
-  background: linear-gradient(135deg, #2563eb 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 2.5rem;
+  color: #000;
   margin-bottom: 1.5rem;
 }
 
 .our-integrations .section-subtitle {
   font-size: 1.375rem;
   font-weight: 500;
-  color: var(--text-dark);
+  color: #000;
   margin-bottom: 4rem;
 }
 
@@ -33,10 +30,6 @@
   gap: 1.5rem;
   animation: marquee 30s linear infinite;
   width: fit-content;
-}
-
-.integrations-marquee:hover {
-  animation-play-state: paused;
 }
 
 @keyframes marquee {
@@ -70,7 +63,7 @@
 
 .integration-icon {
   font-size: 3.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
   transition: transform 0.3s ease;
 }
@@ -81,7 +74,7 @@
 
 .integration-name {
   font-weight: 700;
-  color: var(--text-dark);
+  color: #000;
   font-size: 1.1rem;
   margin: 0;
   letter-spacing: 0.3px;
@@ -89,7 +82,7 @@
 
 @media (max-width: 768px) {
   .our-integrations .section-title {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
   
   .our-integrations .section-subtitle {

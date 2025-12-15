@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import PageHero from '../components/PageHero'
 import './Services.css'
 
 const Services = () => {
@@ -72,14 +73,10 @@ const Services = () => {
 
   return (
     <div className="services-page">
-      <section className="services-hero section">
-        <div className="container">
-          <h1 className="page-title">Our Services</h1>
-          <p className="page-subtitle">
-            Comprehensive technology solutions to power your business growth
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Our Services"
+        subtitle="Comprehensive technology solutions to power your business growth"
+      />
 
       {services.map((service, index) => (
         <section
@@ -89,14 +86,50 @@ const Services = () => {
           }`}
         >
           <div className="container">
-            <div className="service-card-vertical">
-              <div className="service-icon-wrapper" style={{ backgroundColor: `${service.color}15` }}>
-                <span className="service-icon-large" style={{ color: service.color }}>
-                  {service.icon}
-                </span>
+            <div className="service-card-modern">
+              <div className="service-left">
+                <div
+                  className="service-icon-block"
+                  style={{ backgroundColor: `${service.color}15`, color: service.color }}
+                >
+                  <span className="service-icon-large">{service.icon}</span>
+                </div>
+                <h2 className="service-title-modern">{service.title}</h2>
+                <p className="service-description-modern">{service.description}</p>
+                <div className="service-list">
+                  <h3>What's Included</h3>
+                  <ul>
+                    {service.features.map((feature, fIndex) => (
+                      <li key={fIndex}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+                <Link to="/contact" className="btn btn-primary service-btn">
+                  Get Started
+                </Link>
               </div>
-              <h2 className="service-title-vertical">{service.title}</h2>
-              <p className="service-description-vertical">{service.description}</p>
+              <div className="service-right">
+                <div className="deliverables">
+                  <div className="pill pill-blue">Deliverables</div>
+                  <ul>
+                    {service.features.map((feature, fIndex) => (
+                      <li key={fIndex}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="timeline">
+                  <p className="timeline-label">Timeline</p>
+                  <p className="timeline-value">2-6 weeks</p>
+                </div>
+                <div className="outcomes">
+                  <div className="pill pill-green">Expected Outcomes</div>
+                  <ul>
+                    <li>Reduce manual work by 80%+</li>
+                    <li>Automate key workflows & reporting</li>
+                    <li>Save 20+ hours per week</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </section>

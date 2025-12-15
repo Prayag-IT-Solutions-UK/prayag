@@ -1,34 +1,49 @@
+import { useState } from 'react'
+import ChatContainer from '../ChatContainer'
 import './Hero.css'
 
 const Hero = () => {
+  const [hasMessages, setHasMessages] = useState(false)
+
+  const handleMessagesChange = (messageCount: number) => {
+    setHasMessages(messageCount > 0)
+  }
+
   return (
-    <section className="hero">
+    <section className={`hero ${hasMessages ? 'hero-chat-active' : ''}`}>
+      <div className="hero-arc-layer-1"></div>
+      {/* Quantum Orbits */}
+      <div className="quantum-orbits">
+        <div className="quantum-orbit orbit-1">
+          <div className="orbit-particle"></div>
+        </div>
+        <div className="quantum-orbit orbit-2">
+          <div className="orbit-particle"></div>
+        </div>
+        <div className="quantum-orbit orbit-3">
+          <div className="orbit-particle"></div>
+        </div>
+        <div className="quantum-orbit orbit-4">
+          <div className="orbit-particle"></div>
+        </div>
+      </div>
       <div className="container">
-        <div className="hero-content">
-          <div className="ai-assistance-badge">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                fill="currentColor"
-              />
-            </svg>
-            AI-Powered Assistance
-          </div>
+        <div className={`hero-content ${hasMessages ? 'hero-content-chat-active' : ''}`}>
+          {!hasMessages && (
+            <div className="hero-welcome-content">
           <h1 className="hero-title">
             <span className="title-welcome">Welcome to</span>{' '}
-            <span className="title-blue">Prayag</span>{' '}
-            <span className="title-purple">IT Solutions</span>
+            <span className="title-blue">PRAYAG</span>{' '}
+            <span className="title-purple">Solutions LTD</span>
           </h1>
           <p className="hero-description">
             Ask anything about our services, AI automation, or your business
-            needs
+                needs and get instant, intelligent assistance tailored to your
+                workflows.
           </p>
+            </div>
+          )}
+          <ChatContainer onMessagesChange={handleMessagesChange} hasMessages={hasMessages} />
         </div>
       </div>
     </section>
