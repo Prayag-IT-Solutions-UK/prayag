@@ -7,7 +7,8 @@ const FounderNote = () => {
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout | null = null
+    // Track the timeout created for the animation reset without relying on Node types
+    let timeoutId: ReturnType<typeof setTimeout> | null = null
 
     const observer = new IntersectionObserver(
       (entries) => {

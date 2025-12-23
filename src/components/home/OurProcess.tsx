@@ -65,7 +65,7 @@ const OurProcess = () => {
     // Use Intersection Observer as primary detection
     const observers: IntersectionObserver[] = []
 
-    stepRefs.current.forEach((ref, index) => {
+    stepRefs.current.forEach((ref) => {
       if (ref) {
         const observer = new IntersectionObserver(
           () => {
@@ -122,7 +122,7 @@ const OurProcess = () => {
     },
   ]
 
-  const renderImage = (type: string, index: number) => {
+  const renderImage = (type: string) => {
     switch (type) {
       case 'lightbulb':
         return (
@@ -384,7 +384,7 @@ const OurProcess = () => {
                 </div>
               </div>
               <div className="process-step-right">
-                <div className="process-image">{renderImage(step.imageType, index)}</div>
+                <div className="process-image">{renderImage(step.imageType)}</div>
               </div>
             </div>
           ))}
