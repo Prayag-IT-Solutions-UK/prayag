@@ -27,12 +27,15 @@
 .product-graphic {
   background: var(--bg-light);
   border-radius: 20px;
-  padding: 4rem;
+  padding: 0;
   text-align: center;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
   border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .product-graphic::before {
@@ -70,6 +73,16 @@
   border-radius: 50px;
   font-weight: 600;
   display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.whatsapp-agent-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 20px;
   position: relative;
   z-index: 1;
 }

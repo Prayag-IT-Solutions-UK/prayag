@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
 import './Products.css'
+import whatsappAgentImage from '/whatsappAgent.jpeg'
 
 const Products = () => {
   return (
@@ -15,8 +16,11 @@ const Products = () => {
           <div className="product-content">
             <div className="product-image">
               <div className="product-graphic">
-                <div className="whatsapp-icon">💬</div>
-                <div className="ai-badge">AI Powered</div>
+                <img 
+                  src={whatsappAgentImage} 
+                  alt="WhatsApp AI Agent" 
+                  className="whatsapp-agent-image"
+                />
               </div>
             </div>
             <div className="product-text">

@@ -53,7 +53,7 @@ button {
 }
 
 .section-title {
-  font-size: 2.75rem;
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
   color: var(--text-dark);
@@ -108,7 +108,7 @@ button {
   }
 
   .section-title {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 
   .section-subtitle {
